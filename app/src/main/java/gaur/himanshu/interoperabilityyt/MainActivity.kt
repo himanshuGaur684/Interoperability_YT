@@ -1,5 +1,6 @@
 package gaur.himanshu.interoperabilityyt
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.activity.ComponentActivity
@@ -37,6 +38,11 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+
+        startActivity(Intent(this,ViewActivity::class.java))
+
+
 
         _binding = BarcodeScannerBinding.inflate(layoutInflater)
         val format = listOf(BarcodeFormat.QR_CODE)
@@ -78,10 +84,8 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun InteroperabilityExample(root: View, value: String) {
     Column(modifier = Modifier.fillMaxSize()) {
-
         AndroidView(factory = { root }, modifier = Modifier.wrapContentSize())
         Spacer(modifier = Modifier.height(12.dp))
         Text(text = value, modifier = Modifier.fillMaxWidth(), textAlign = TextAlign.Center)
-
     }
 }
